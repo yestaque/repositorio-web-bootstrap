@@ -1,0 +1,122 @@
+.img-carrossel {
+  width: 800px;       /* Largura da imagem */
+  height: 650px;      /* Altura da imagem */
+  object-fit: cover;  /* Corta para manter a proporção */
+  margin: 0 auto;     /* Centraliza horizontalmente */
+  border-radius: 10px; /* Borda arredondada opcional */
+}
+
+.carousel {
+  width: 480px;       /* Largura total do carrossel */
+  margin: 20px auto;  /* Centraliza o carrossel na tela */
+}
+
+.card-img-top{
+    width: 40;
+    height: 30;
+}
+
+  /* --- Ajuste geral dos cards --- */
+  .card {
+    width: 300px;         /* Largura do card */
+    height: 420px;        /* Altura total do card */
+    margin: 15px auto;    /* Centraliza e dá espaçamento */
+    border-radius: 10px;  /* Cantos arredondados */
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2); /* Sombra leve */
+    overflow: hidden;     /* Impede conteúdo de sair do card */
+  }
+
+  /* --- Ajuste da imagem do card --- */
+  .card-img-top {
+    width: 100%;          /* Faz a imagem ocupar a largura total do card */
+    height: 200px;        /* Altura da imagem */
+    object-fit: cover;    /* Corta e mantém proporção */
+  }
+
+  /* --- Texto do card --- */
+  .card-body {
+    text-align: center;
+    padding: 15px;
+  }
+
+  /* --- Layout responsivo --- */
+  .row {
+    justify-content: center;  /* Centraliza os cards na tela */
+  }
+
+  @media (max-width: 768px) {
+  .card {
+    width: 90%;
+    height: auto;
+  }
+
+  .card-img-top {
+    height: 180px;
+  }
+}
+
+.imagem123{
+  width: 150px;
+  height: 150px;
+}
+
+.nav-item{
+  font-size: 20px;
+}
+
+/* ==== ESTILO GERAL ==== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    color: #222;
+    background: linear-gradient(135deg, #f7f7f7 0%, #e6f0ff 100%);
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+/* ==== CABEÇALHO / NAVBAR ==== */
+.navbar {
+    background: linear-gradient(90deg, #004aad, #0073e6);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.navbar a {
+    color: rgb(255, 0, 0) !important;
+    font-weight: 500;
+    transition: 0.3s;
+}
+
+.navbar a:hover {
+    color: #7bff00 !important;
+    transform: scale(1.05);
+}
+
+/* ==== CONTEÚDO PRINCIPAL ==== */
+.counteudo-site {
+    text-align: center;
+    background: white;
+    margin: 50px auto;
+    width: 90%;
+    max-width: 1000px;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+}
+
+.conteudo-site-titulo {
+    color: #004aad;
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+
+.conteudo-site-paragrafo {
+    color: #333;
+    font-size: 1.1rem;
+}
+
+/* =*
