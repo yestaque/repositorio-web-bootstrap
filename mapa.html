@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mapa estilo Jet</title>
+
+  <!-- Leaflet CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #f0f0f0;
+    }
+
+    #map {
+      height: 100vh;
+      width: 100%;
+    }
+
+    /* Botão flutuante tipo app */
+    .botao-localizar {
+      position: absolute;
+      bottom: 20px;
+      right: 20px;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      padding: 12px 15px;
+      border-radius: 50%;
+      font-size: 20px;
+      box-shadow: 0 3px 8px rgba(0, 0, 0, 0.3);
+      cursor: pointer;
+      transition: background-color 0.2s;
+    }
+
+    .botao-localizar:hover {
+      background-color: #0056b3;
+    }
+  </style>
+</head>
+<body>
+
+  <div id="map"></div>
+  <button class="botao-localizar" id="localizar">📍</button>
+
+  <!-- Leaflet JS -->
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+  <script>
+    // Inicializa o mapa centralizado no RN
+    var map = L.map('map').setView([-5.7945, -35.211], 12); // Natal - RN
+
+    // Camada do mapa estilo Uber (cinza claro)
+    L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
+      attribution: '&copy; OpenStreetMap, CartoDB'
+    }).addTo(map);
+
+    // Adiciona marcador fixo
+    var marker = L.marker([-5.7945, -35.211]).addTo(map)
+      .bindPopup('📍 Natal - RN')
+      .openPopup();
+
+    // Botão para mostrar localização atual
+    document.getElementById('localizar').addEventListener('click', () => {
+      if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition((pos) => {
+          const lat = pos.coords.latitude;
+          const lon = pos.coords.longitude;
+
+          map.setView([lat, lon], 14);
+          L.marker([lat, lon]).addTo(map)
+            .bindPopup("Você está aqui! 🚗")
+            .openPopup();
+        }, () => {
+          alert("Não foi possível acessar sua localização.");
+        });
+      } else {
+        alert("Seu navegador não suporta geolocalização.");
+      }
+    });
+  </script>
+</body>
+</html>

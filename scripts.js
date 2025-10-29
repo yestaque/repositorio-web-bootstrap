@@ -58,3 +58,67 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 });
+
+
+// scripts.js
+
+// Exibir mensagem de boas-vindas dinâmica
+document.addEventListener("DOMContentLoaded", () => {
+  alert("🎅 Bem-vindo à Loja Natalina do Gabriel!");
+});
+
+// Validação do formulário de cadastro
+document.getElementById("formCadastro").addEventListener("submit", (e) => {
+  e.preventDefault();
+
+  const email = document.getElementById("inputEmail4").value;
+  const senha = document.getElementById("inputPassword4").value;
+  const cidade = document.getElementById("inputCity").value;
+
+  if (!email.includes("@")) {
+    alert("⚠️ Insira um e-mail válido!");
+    return;
+  }
+
+  if (senha.length < 6) {
+    alert("🔒 A senha precisa ter no mínimo 6 caracteres!");
+    return;
+  }
+
+  alert(`✅ Cadastro realizado com sucesso!\nBem-vindo, usuário de ${cidade}!`);
+  e.target.reset();
+});
+
+// Alterar tema da página (modo escuro/claro)
+const botaoTema = document.createElement("button");
+botaoTema.textContent = "🌙 Modo Escuro";
+botaoTema.classList.add("btn", "btn-dark", "m-3");
+document.body.prepend(botaoTema);
+
+let darkMode = false;
+botaoTema.addEventListener("click", () => {
+  darkMode = !darkMode;
+  document.body.classList.toggle("bg-dark");
+  document.body.classList.toggle("text-white");
+  botaoTema.textContent = darkMode ? "☀️ Modo Claro" : "🌙 Modo Escuro";
+});
+
+// Interatividade com cards
+const cards = document.querySelectorAll(".card");
+cards.forEach(card => {
+  card.addEventListener("mouseenter", () => {
+    card.classList.add("shadow-lg", "border-danger");
+  });
+  card.addEventListener("mouseleave", () => {
+    card.classList.remove("shadow-lg", "border-danger");
+  });
+});
+
+// Exemplo de armazenamento local (salvar dados do formulário)
+document.getElementById("formCadastro").addEventListener("submit", () => {
+  const dados = {
+    email: document.getElementById("inputEmail4").value,
+    cidade: document.getElementById("inputCity").value
+  };
+  localStorage.setItem("cadastro", JSON.stringify(dados));
+});
