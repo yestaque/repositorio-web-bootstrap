@@ -1,0 +1,33 @@
+.floco {
+  position: fixed;
+  top: 0;
+  width: 8px;
+  height: 8px;
+  background: white;
+  border-radius: 50%;
+  opacity: 0.8;
+  animation: cair 6s linear;
+}
+@keyframes cair {
+  to {
+    transform: translateY(100vh);
+    opacity: 0;
+  }
+}
+
+.dark-mode {
+  background: #121212;
+  color: white;
+  transition: 0.3s;
+}
+
+.click {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background: red;
+  border-radius: 50%;
+  transform: scale(0);
+  animation: pop 0.8s ease-out forwards;
+}
+@keyframes pop { to { transform: scale(3); opacity: 0; } }

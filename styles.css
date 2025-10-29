@@ -247,3 +247,32 @@ body {
   height: 500px;
 }
 
+/* stylespag.css */
+.dark-mode {
+  background-color: #121212;
+  color: white;
+  transition: 0.3s;
+}
+
+.floco {
+  position: fixed;
+  top: 0;
+  width: 8px;
+  height: 8px;
+  background: white;
+  border-radius: 50%;
+  opacity: 0.8;
+  animation: cair 6s linear;
+}
+@keyframes cair {
+  to {
+    transform: translateY(100vh);
+    opacity: 0;
+  }
+}
+
+.dark-mode {
+  background: #121212;
+  color: white;
+  transition: 0.3s;
+}
